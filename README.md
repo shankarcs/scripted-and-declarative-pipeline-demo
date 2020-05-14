@@ -1,7 +1,5 @@
 # scripted-pipeline-demo
 
-# static-site-docker
-
 `Learning Resources for DevOps, SRE, Cloud & Engineering Management`
 
 [![BINPIPE](https://img.shields.io/badge/BINPIPE-YouTube-red)](https://www.youtube.com/channel/UCPTgt4Wo0MAnuzNEEZlk90A)
