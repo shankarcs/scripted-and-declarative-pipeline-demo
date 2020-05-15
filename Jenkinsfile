@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
+                sh 'pip install virtualenv'
                 sh 'pip install flask'
             }
         }
