@@ -11,15 +11,23 @@
 **A demonstration of Scripted Pipeline with Stages to run a Python script**
 
 
-Choose the Pipeline option while creating the Jenkins job and add the below code in the script window. Follow the video for other details of execution:
+Choose the Pipeline option while creating the Jenkins job and add the below code in the script window. Alternatively, use the Jenkinsfile in the repository to avail the pipelinescript. Follow the video for other details of execution:
 
 ```
 pipeline {
-    agent { docker { image 'python:3.5.1' } }
+    agent { docker { image 'python:3.7.2' } }
     stages {
         stage('build') {
             steps {
-                sh 'python --version'
+                sh 'pip install flask
+            }
+        }
+        stage('test') {
+            steps {
+                sh 'python test.py'
+            }
+            post {
+                always {junit 'test-reports/*.xml'}
             }
         }
     }
