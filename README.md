@@ -8,9 +8,6 @@
 ---
 
 
-**A demonstration of Declarative Pipeline with Stages to run a Python script**
-
-
 ## Prerequisites
 Run the below prerequisites on Jenkins (one-time task) to be able to handle the Python commands:
 
@@ -22,7 +19,32 @@ pip3 install xmlrunner
 - Apart from the above, install the Blue-Ocean plugin in Jenkins to be able to view the Junit Test Reports. We assume that Docker is already installed in the Jenkins server.
 ```
 
-Choose the Pipeline option while creating the Jenkins job and add the below code in the script window. Alternatively, use the Jenkinsfile in the repository to avail the pipelinescript. Follow the video for other details of execution:
+**A demonstration of Declarative Pipeline with Stages to run a Python script**
+
+```
+node('master') {
+ stage('Source') {
+  git 'https://github.com/BINPIPE/scripted-and-declarative-pipeline-demo.git'
+ }
+ stage('Build') {
+  sh 'docker build -t flask-app:latest .'
+ }
+
+ stage('Test') {
+  sh 'python3 test.py'
+ }
+
+}
+
+```
+
+Choose the Pipeline option while creating the Jenkins job and add the below code in the script window. Alternatively, use the Jenkinsfile-Scripted in the repository to avail the pipelinescript. Follow the video for other details of execution:
+
+<hr>
+
+**A demonstration of Declarative Pipeline with Stages to run a Python script**
+
+Choose the Pipeline option while creating the Jenkins job and add the below code in the script window. Alternatively, use the Jenkinsfile-Declarative in the repository to avail the pipelinescript. Follow the video for other details of execution:
 
 ```
 pipeline {
