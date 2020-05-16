@@ -19,6 +19,7 @@ sudo apt update
 sudo apt install python3-pip
 pip3 install xmlrunner
 
+## Install the Open Blue ocean plugin in Jenkins to be able to view the Junit Test Reports
 ```
 
 Choose the Pipeline option while creating the Jenkins job and add the below code in the script window. Alternatively, use the Jenkinsfile in the repository to avail the pipelinescript. Follow the video for other details of execution:
