@@ -11,6 +11,16 @@
 **A demonstration of Scripted Pipeline with Stages to run a Python script**
 
 
+## Prerequisites
+Run the below prerequisites on Jenkins (one-time task) to be able to handle the Python commands:
+
+```
+sudo apt update
+sudo apt install python3-pip
+pip3 install xmlrunner
+
+```
+
 Choose the Pipeline option while creating the Jenkins job and add the below code in the script window. Alternatively, use the Jenkinsfile in the repository to avail the pipelinescript. Follow the video for other details of execution:
 
 ```
