@@ -28,5 +28,7 @@ pipeline {
                 sh 'echo "Check App at http://ip-address:5000/"'
 
               }
-        }     
+        }    
+        
+    }     
 }
