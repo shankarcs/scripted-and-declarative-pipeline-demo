@@ -15,6 +15,7 @@ Run the below prerequisites on Jenkins (one-time task) to be able to handle the 
 sudo apt update
 sudo apt install python3-pip
 pip3 install xmlrunner
+pip3 install flask
 
 - Apart from the above, install the Blue-Ocean plugin in Jenkins to be able to view the Junit Test Reports. We assume that Docker is already installed in the Jenkins server.
 ```
