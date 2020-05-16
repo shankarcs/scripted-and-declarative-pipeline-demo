@@ -19,7 +19,7 @@ sudo apt update
 sudo apt install python3-pip
 pip3 install xmlrunner
 
-## Apart from the above, install the Open Blue ocean plugin in Jenkins to be able to view the Junit Test Reports. We assume that Docker is already installed in the Jenkins server.
+- Apart from the above, install the Blue-Ocean plugin in Jenkins to be able to view the Junit Test Reports. We assume that Docker is already installed in the Jenkins server.
 ```
 
 Choose the Pipeline option while creating the Jenkins job and add the below code in the script window. Alternatively, use the Jenkinsfile in the repository to avail the pipelinescript. Follow the video for other details of execution:
