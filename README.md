@@ -19,7 +19,7 @@ pip3 install xmlrunner
 - Apart from the above, install the Blue-Ocean plugin in Jenkins to be able to view the Junit Test Reports. We assume that Docker is already installed in the Jenkins server.
 ```
 
-**A demonstration of Declarative Pipeline with Stages to run a Python script**
+**A demonstration of Scripted Pipeline with Stages to run a Python script**
 
 ```
 node('master') {
@@ -48,23 +48,40 @@ Choose the Pipeline option while creating the Jenkins job and add the below code
 
 ```
 pipeline {
-    agent { docker { image 'python:3.7.2' } }
+    agent any
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
-                sh 'pip install flask
+                sh 'docker build -t flask-app:latest .'
             }
         }
-        stage('test') {
+        
+        
+        stage('Test') {
             steps {
-                sh 'python test.py'
+                sh 'python3 test.py'
             }
             post {
                 always {junit 'test-reports/*.xml'}
             }
         }
-    }
+        
+        stage('Approve Deployment') {
+            input{
+                 message "Do you want to proceed for deployment?"
+                    }
+            steps {
+                sh 'echo "Deploying into Server"'
+                sh 'docker rm -f flask-app || true'
+                sh 'docker run -d -p 5000:5000 --name flask-app flask-app:latest'
+                sh 'echo "Check App at http://ip-address:5000/"'
+
+              }
+        }    
+        
+    }     
 }
+
 ```
 
 <pre>
