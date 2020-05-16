@@ -8,7 +8,7 @@
 ---
 
 
-**A demonstration of Scripted Pipeline with Stages to run a Python script**
+**A demonstration of Declarative Pipeline with Stages to run a Python script**
 
 
 ## Prerequisites
