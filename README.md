@@ -1,4 +1,4 @@
-# scripted-pipeline-demo
+# Scripted & Declarative Pipelines Demo
 
 `Learning Resources for DevOps, SRE, Cloud & Engineering Management`
 
