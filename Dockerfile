@@ -1,5 +1,5 @@
 FROM ubuntu:16.04
-MAINTANER Prasanjit "nixgurus@gmail.com"
+MAINTAINER Prasanjit "nixgurus@gmail.com"
 
 RUN apt-get update -y && \
     apt-get install -y python-pip python-dev
