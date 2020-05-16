@@ -1,0 +1,13 @@
+node('master') {
+ stage('Source') {
+  git 'https://github.com/BINPIPE/scripted-and-declarative-pipeline-demo.git'
+ }
+ stage('Build') {
+  sh 'docker build -t flask-app:latest .'
+ }
+
+ stage('Test') {
+  sh 'python3 test.py'
+ }
+
+}
