@@ -1,15 +1,14 @@
 pipeline {
-    agent { docker { image 'servergurus/python-3.7' } }
+    agent any
     stages {
         stage('build') {
             steps {
-                sh 'pip install --upgrade pip'
-                sh 'pip install --user flask'
+                sh 'docker build -t flask-app:latest .'
             }
         }
         stage('test') {
             steps {
-                sh 'python test.py'
+                //sh 'python test.py'
             }
             post {
                 always {junit 'test-reports/*.xml'}
