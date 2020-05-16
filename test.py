@@ -7,7 +7,7 @@ class TestHello(unittest.TestCase):
     def test_hello(self):
         rv = self.app.get('/')
         self.assertEqual(rv.status, '200 OK')
-        self.assertEqual(rv.data, b'Hey, we have Flask in a Docker container!\n')
+        self.assertEqual(rv.data, b'Hey, we have Python Flask in a Docker container!\n')
 
 #Simple test report        
 #if __name__ == '__main__':
