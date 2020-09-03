@@ -16,7 +16,7 @@ node('master') {
 if(currentBuild.result == 'SUCCESS') {
      stage('Post-run auditing') {
         build job: 'helloworld'
-        } else {
+        }else {
         slackSend channel: 'licensescheck'
         }
     }
