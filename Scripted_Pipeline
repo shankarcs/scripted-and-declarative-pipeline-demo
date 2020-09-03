@@ -13,7 +13,7 @@ node('master') {
         // fail the build if an exception is thrown
         currentBuild.result = "FAILURE"
 } 
-if(currentBuild.result != 'FAILURE') {
+if(currentBuild.result == 'FAILURE') {
      stage('Post-run auditing') {
         build job: 'helloworld'
         }
