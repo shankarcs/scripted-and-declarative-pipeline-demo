@@ -12,7 +12,7 @@ node('master') {
   }
 } catch (e) {
         // fail the build if an exception is thrown
-        currentBuild.result = "FAILED"
+        currentBuild.result = "FAILURE"
         throw e
 } finally {
      stage('Post-run auditing') {
