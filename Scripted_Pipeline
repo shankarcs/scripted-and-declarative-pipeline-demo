@@ -14,8 +14,8 @@ node('master') {
         currentBuild.result = "FAILURE"
         slackSend channel: 'licensescheck'
 }
+if (currentBuild.result != "FAILURE") {
 stage('Post Build') {
-if (currentBuild.result == 'SUCCESS') {
    build job: 'helloworld'
 }
 }
