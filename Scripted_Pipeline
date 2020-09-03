@@ -2,12 +2,17 @@ node('master') {
  stage('Source') {
   git 'https://github.com/BINPIPE/scripted-and-declarative-pipeline-demo.git'
  }
+ try {
  stage('Build') {
   sh 'docker build -t flask-app:latest .'
  }
  stage('Test') {
   sh 'python3 test.py'
   }
+} catch (e) {
+        // fail the build if an exception is thrown
+        currentBuild.result = "FAILURE"
+}
 stage('Post Build') {
 if (currentBuild.result == 'SUCCESS') {
    build job: 'helloworld'
