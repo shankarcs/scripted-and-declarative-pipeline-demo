@@ -15,8 +15,10 @@ node('master') {
         currentBuild.result = "FAILED"
         throw e
 } finally {
+    postBuildSteps('SUCCESS') {
      stage('Post-run auditing') {
         build job: 'helloworld'
+        }
         }
     }
 }
