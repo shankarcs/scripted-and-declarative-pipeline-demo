@@ -12,7 +12,7 @@ node('master') {
 } catch (e) {
         // fail the build if an exception is thrown
         currentBuild.result = "FAILURE"
-        slackSend channel: 'licensescheck',env.JOB_NAME, env.BUILD_URL, currentBuild.currentResult
+        slackSend channel: 'licensescheck'
 }
 if (currentBuild.result != "FAILURE") {
 stage('Post Build') {
