@@ -11,11 +11,13 @@ node('master') {
   }
 } catch (e) {
         // fail the build if an exception is thrown
-        slackSend channel: 'licensescheck'
+        currentBuild.result = "FAILURE"
 }
 stage('Post Build') {
 if (currentBuild.result == 'SUCCESS') {
    build job: 'helloworld'
-} 
+} else {
+    slackSend channel: 'licensescheck'
+}
 }
 }
