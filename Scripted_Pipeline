@@ -17,6 +17,7 @@ if(currentBuild.result == 'SUCCESS') {
      stage('Post-run auditing') {
         build job: 'helloworld'
         } else {
-        slackSend channel: 'licensescheck '
+        slackSend channel: 'licensescheck'
+        }
     }
 }
