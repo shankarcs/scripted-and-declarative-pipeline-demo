@@ -15,7 +15,7 @@ node('master') {
         throw e
 } finally {
      stage('Post-run auditing') {
-        build job: 'helloworld'
+        build job: 'helloworld', propagate:false
         }
     }
 }
