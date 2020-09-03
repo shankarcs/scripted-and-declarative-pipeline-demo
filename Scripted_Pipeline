@@ -10,9 +10,8 @@ node('master') {
   sh 'python3 test.py'
   }
 } catch (e) {
-        // fail the build if an exception is thrown
-        currentBuild.result = "FAILURE"
-        throw e
+postToSlack.postToChannel env.JOB_NAME, env.BUILD_URL, currentBuild.currentResult, "licensescheck", ""
+
 } finally {
      stage('Post-run auditing') {
         build job: 'helloworld'
