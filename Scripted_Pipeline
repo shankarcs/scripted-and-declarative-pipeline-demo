@@ -4,10 +4,8 @@ node('master') {
  }
  try {
  stage('Build') {
-   catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
   sh 'docker build -t flask-app:latest .'
  }
-}
  stage('Test') {
   sh 'python3 test.py'
   }
