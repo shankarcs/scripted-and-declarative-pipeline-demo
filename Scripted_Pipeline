@@ -13,9 +13,11 @@ node('master') {
         // fail the build if an exception is thrown
         currentBuild.result = "FAILURE"
 }
+stage('Post Build') {
 if (currentBuild.result == 'SUCCESS') {
    build job: 'helloworld'
 } else {
     slackSend channel: 'licensescheck'
+}
 }
 }
